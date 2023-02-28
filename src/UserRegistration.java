@@ -82,7 +82,7 @@ public class UserRegistration extends JDialog{
     private UserAcc addToDB(String uName, String uEmail, String uPhone, String uAddress, String uPassword) {
         UserAcc userAcc = null;
 
-        final String DB_URL = "https://demo.phpmyadmin.net/master-config/public/index.php?route=/table/structure&db=mysql&table=users";
+        final String DB_URL = "https://demo.phpmyadmin.net/master-config/public/index.php?route=/database/structure&db=USERS";
         final String USERNAME = "root";
         final String PASSWORD = "";
 
@@ -90,7 +90,7 @@ public class UserRegistration extends JDialog{
             Connection con = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
 
             Statement states = con.createStatement();
-            String sqlOp = "INSERT INTO users (uName, uEmail, uPhone, uAddress, uPassword)"+ "VALUES (?, ?, ?, ?, ?)";
+            String sqlOp = "INSERT INTO USERS (uName, uEmail, uPhone, uAddress, uPassword)"+ "VALUES (?, ?, ?, ?, ?)";
             PreparedStatement prepStates = con.prepareStatement(sqlOp);
 
             prepStates.setString(1, uName);
